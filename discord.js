@@ -68,11 +68,12 @@ client.on('message', message => {
 			client.commands.get('ban').execute(message, args);
 		}
 
+		else if(message.content.startsWith (`${prefix}name `)) {
+				client.commands.get('name').execute(message, args, message.member);
+			}
 	}
 	if(message.channel.id === '634989371682062356') {
-		if(message.content.startsWith (`${prefix}Name `)) {
-			client.commands.get('Name').execute(message, args, message.member);
-		}
+
 	}
 
 });
