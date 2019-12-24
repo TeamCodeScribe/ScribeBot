@@ -67,8 +67,12 @@ client.on('message', message => {
 		else if(message.content.startsWith (`${prefix}ban `)) {
 			client.commands.get('ban').execute(message, args);
 		}
+		else if (message.content.startsWith (`${prefix}lock `)) {
+			client.commands.get('example').execute(message, args);
+        }
 	}
 	if(message.channel.id === '634989371682062356') {
+		// The command to give the person their nickname and human role
 		if(message.content.startsWith (`${prefix}name `)) {
 			client.commands.get('name').execute(message, args, message.member);
 		}
@@ -77,7 +81,7 @@ client.on('message', message => {
 });
 
 client.on('guildMemberAdd', member => {
-	member.guild.channels.get('635650467279667200').send(`Hello, @${member} use the >name command followed by your first and last name to be successfully authenticated. Please remember to read #info`);
+	member.guild.channels.get('635650467279667200').send(`Hello, ${member} use the >name command followed by your first and last name to be successfully authenticated. Please remember to read #info`);
 
 });
 
