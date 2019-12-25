@@ -68,7 +68,7 @@ client.on('message', message => {
 			client.commands.get('ban').execute(message, args);
 		}
 		else if (message.content.startsWith (`${prefix}lock `)) {
-			client.commands.get('example').execute(message, args);
+			client.commands.get('lock').execute(message, args);
         }
 	}
 	if(message.channel.id === '634989371682062356') {
