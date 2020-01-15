@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const {
+	Client,
+	RichEmbed
+} = require('discord.js');
+const {
 	prefix,
 	token
 } = require('../../config.json');
@@ -28,6 +32,7 @@ client.on('message', message => {
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
+	const embed = new RichEmbed();
 	// const taggedUser = message.mentions.users.first();
 
 	// if(message.channel.id === '635628406779805706') {
@@ -46,8 +51,8 @@ client.on('message', message => {
 		client.commands.get('serverInfo').execute(message, args);
 	} else if (command === (`${prefix}help`)) {
 		client.commands.get('help').execute(message, args, prefix);
-	} else if (message.content.startsWith(`${prefix}role `)) {
-		client.commands.get('role').execute(message, args);
+	} else if (message == (`${prefix}role`)) {
+		client.commands.get('roleReaction').execute(message, args, embed);
 	}
 
 
