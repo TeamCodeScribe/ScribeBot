@@ -12,6 +12,7 @@ const fs = require('fs');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const unirest = require("unirest");
+const emoji = require("./commands/emoji.js");
 
 
 client.on('ready', () => {
@@ -52,12 +53,12 @@ client.on('message', message => {
 	} else if (command === (`${prefix}help`)) {
 		client.commands.get('help').execute(message, args, prefix);
 	} else if (message == (`${prefix}role`)) {
-		client.commands.get('roleReaction').execute(message, args, embed);
+		client.commands.get('roleReaction').execute(message, args, embed, emoji);
 	}
 
 
 
-	if (message.member.roles.has('560602478811545609')) {
+	if (message.member.roles.has('666849022186749971')) {
 		// Admin only commands
 		if (message.content.startsWith(`${prefix}clear`)) {
 			client.commands.get('clear').execute(message, args);

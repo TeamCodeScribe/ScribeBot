@@ -2,11 +2,18 @@ module.exports = {
   name: "parse",
   description: "parse",
   execute(message, args, unirest, fs) {
+    let previousMsgs;
+    message.channel.fetchMessages({
+
+      })
+      .then(messages => previousMsgs = messages)
+      .catch(console.error);
+
     try {
       fs.readFile(
         "../../output.json",
         // callback function that is called when reading file is done
-        function(err, data) {
+        function (err, data) {
           // json data
           var jsonData = data;
 
@@ -20,8 +27,9 @@ module.exports = {
               //console.log(hackCA);
 
               if (parseJSON.start.includes("2020")) {
-                message.channel.send(
-                  "Name: " +
+                if (message.channel.send !== previousMsgs) {
+                  message.channel.send(
+                    "Name: " +
                     parseJSON.name +
                     "\n" +
                     "Location: " +
@@ -37,7 +45,8 @@ module.exports = {
                     "\n" +
                     " " +
                     "_ \n_"
-                );
+                  );
+                }
               }
             }
           });
