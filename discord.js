@@ -12,7 +12,8 @@ const fs = require('fs');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const unirest = require("unirest");
-const emoji = require("./commands/emoji.js");
+const emoji = require("./commands/emoji.js").execute(client);
+
 
 
 client.on('ready', () => {
