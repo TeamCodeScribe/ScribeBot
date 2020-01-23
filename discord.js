@@ -1,22 +1,26 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
+
 const {
-	Client,
 	RichEmbed
-} = require('discord.js');
+} = require("discord.js");
+
 const {
 	prefix,
 	token
-} = require('../../config.json');
-const fs = require('fs');
+} = require("../../config.json");
+
+const fs = require("fs");
+
 client.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+const commandFiles = fs
+	.readdirSync("./commands")
+	.filter(file => file.endsWith(".js"));
+
 const unirest = require("unirest");
-const emoji = require("./commands/emoji.js").execute(client);
 
-
-
-client.on('ready', () => {
+client.on("ready", () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -28,68 +32,81 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-
-client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+client.on("message", message => {
+	if (!message.content.startsWith(prefix)) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 	const embed = new RichEmbed();
 	// const taggedUser = message.mentions.users.first();
 
-	// if(message.channel.id === '635628406779805706') {
 
-	if (message == (`${prefix}ping`)) {
-		client.commands.get('ping').execute(message, args);
-	} else if (message == (`${prefix}github`)) {
-		client.commands.get('github').execute(message, args);
-	} else if (message == (`${prefix}invite`)) {
-		client.commands.get('invite').execute(message, args);
-	} else if (message == (`${prefix}channelID`)) {
-		client.commands.get('channelID').execute(message, args);
-	} else if (message == (`${prefix}userInfo`)) {
-		client.commands.get('userInfo').execute(message, args);
-	} else if (message == (`${prefix}serverInfo`)) {
-		client.commands.get('serverInfo').execute(message, args);
-	} else if (command === (`${prefix}help`)) {
-		client.commands.get('help').execute(message, args, prefix);
-	} else if (message == (`${prefix}role`)) {
-		client.commands.get('roleReaction').execute(message, args, embed, emoji);
+
+	if (message == `${prefix}ping`) {
+		client.commands.get("ping").execute(message, args);
+	} else if (message == `${prefix}github`) {
+		client.commands.get("github").execute(message, args);
+	} else if (message == `${prefix}invite`) {
+		client.commands.get("invite").execute(message, args);
+	} else if (message == `${prefix}channelID`) {
+		client.commands.get("channelID").execute(message, args);
+	} else if (message == `${prefix}userInfo`) {
+		client.commands.get("userInfo").execute(message, args);
+	} else if (message == `${prefix}serverInfo`) {
+		client.commands.get("serverInfo").execute(message, args);
+	} else if (command === `${prefix}help`) {
+		client.commands.get("help").execute(message, args, prefix);
+	} else if (message == `${prefix}role`) {
+		client.commands.get("roleReaction").execute(message, args, embed, client);
 	}
 
-
-
-	if (message.member.roles.has('666849022186749971')) {
+	if (message.member.roles.has("668552483626549259")) {
 		// Admin only commands
 		if (message.content.startsWith(`${prefix}clear`)) {
-			client.commands.get('clear').execute(message, args);
+			client.commands.get("clear").execute(message, args);
 		} else if (message.content.startsWith(`${prefix}ban `)) {
-			client.commands.get('ban').execute(message, args);
+			client.commands.get("ban").execute(message, args);
 		} else if (message.content.startsWith(`${prefix}lock `)) {
-			client.commands.get('lock').execute(message, args);
+			client.commands.get("lock").execute(message, args);
 		}
 	}
-	if (message.channel.id === '634989371682062356') {
+	if (message.channel.id === "635650467279667200") {
 		// The command to give the person their nickname and human role
 		if (message.content.startsWith(`${prefix}name `)) {
-			client.commands.get('name').execute(message, args, message.member);
+			client.commands.get("name").execute(message, args, message.member);
 		}
 	}
 
-	if (message.channel.id === '658389046833184779') {
+	if (message.channel.id === "658389046833184779") {
 		// Hackathon-watch
 		if (message.content.startsWith(`${prefix}hackathon`)) {
-			client.commands.get('parse').execute(message, args, unirest, fs);
+			client.commands.get("parse").execute(message, args, unirest, fs);
 		}
 	}
 
+	//Role Reaction Thingy
+	// if (message.author.bot) {
+	// 	if (message.embeds) {
+	// 		const embedLang = message.embeds.find(msg => msg.title === 'Language Roles');
+
+	// 		if (embedLang) {
+	// 			let swift = client.emojis.find(emoji => emoji.name === "swift");
+	// 			embedLang.message.react(swift)
+	// 				.then(reaction => console.log("reacted with" + reaction.emoji.name))
+	// 				.catch(err => console.error);
+	// 		}
+	// 	}
+	// 	return;
+	// }
 });
 
-client.on('guildMemberAdd', member => {
-	member.guild.channels.get('635650467279667200').send(`Hello, ${member} use the >name command followed by your first and last name to be successfully authenticated. Please remember to read #info`);
-
+client.on("guildMemberAdd", member => {
+	member.guild.channels
+		.get("635650467279667200")
+		.send(
+			`Hello, ${member} use the >name command followed by your first and last name to be successfully authenticated. Please remember to read #info`
+		);
 });
-
 
 client.login(token);
 
