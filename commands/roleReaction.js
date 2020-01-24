@@ -3,27 +3,27 @@ module.exports = {
     description: "roleReaction",
     execute(message, args, embed, client) {
         //The Variables ughhh
-        let windows = client.emojis.find(emoji => emoji.name === "windows");
-        let linux = client.emojis.find(emoji => emoji.name === "linux");
-        let macos = client.emojis.find(emoji => emoji.name === "macos");
-        let ios = client.emojis.find(emoji => emoji.name === "ios");
-        let android = client.emojis.find(emoji => emoji.name === "android");
-        let swift = client.emojis.find(emoji => emoji.name === "swift");
-        let rust = client.emojis.find(emoji => emoji.name === "rust");
-        let python = client.emojis.find(emoji => emoji.name === "python");
-        let mustache = client.emojis.find(emoji => emoji.name === "mustache");
-        let lua = client.emojis.find(emoji => emoji.name === "lua");
-        let kotlin = client.emojis.find(emoji => emoji.name === "kotlin");
-        let javascript = client.emojis.find(emoji => emoji.name === "javascript");
-        let java = client.emojis.find(emoji => emoji.name === "java");
-        let html = client.emojis.find(emoji => emoji.name === "html");
-        let go = client.emojis.find(emoji => emoji.name === "go");
-        let css = client.emojis.find(emoji => emoji.name === "css");
-        let csharp = client.emojis.find(emoji => emoji.name === "csharp");
-        let cpp = client.emojis.find(emoji => emoji.name === "cpp");
-        let c = client.emojis.find(emoji => emoji.name === "clang");
-        let bash = client.emojis.find(emoji => emoji.name === "bash");
-        let assembly = client.emojis.find(emoji => emoji.name === "assembly");
+        let windows = client.emojis.find(emoji => emoji.name === "Windows");
+        let linux = client.emojis.find(emoji => emoji.name === "Linux");
+        let macos = client.emojis.find(emoji => emoji.name === "macOS");
+        let ios = client.emojis.find(emoji => emoji.name === "iOS");
+        let android = client.emojis.find(emoji => emoji.name === "Android");
+        let swift = client.emojis.find(emoji => emoji.name === "Swift");
+        let rust = client.emojis.find(emoji => emoji.name === "Rust");
+        let python = client.emojis.find(emoji => emoji.name === "Python");
+        let mustache = client.emojis.find(emoji => emoji.name === "Mustache");
+        let lua = client.emojis.find(emoji => emoji.name === "Lua");
+        let kotlin = client.emojis.find(emoji => emoji.name === "Kotlin");
+        let javascript = client.emojis.find(emoji => emoji.name === "JavaScript");
+        let java = client.emojis.find(emoji => emoji.name === "Java");
+        let html = client.emojis.find(emoji => emoji.name === "HTMLCSS");
+        let go = client.emojis.find(emoji => emoji.name === "Go");
+        let css = client.emojis.find(emoji => emoji.name === "CSS");
+        let csharp = client.emojis.find(emoji => emoji.name === "Csharp");
+        let cpp = client.emojis.find(emoji => emoji.name === "Cpp");
+        let c = client.emojis.find(emoji => emoji.name === "Clang");
+        let bash = client.emojis.find(emoji => emoji.name === "Shell");
+        let assembly = client.emojis.find(emoji => emoji.name === "Assembly");
 
         /*
                 Languages: Python, Java, JavaScript, C#, C++, C, HTML/CSS, Kotlin, Swift, Rust, PHP, Lua, Bash
@@ -46,15 +46,52 @@ module.exports = {
             `${csharp} - C#\n` +
             `${cpp} - C++\n` +
             `${c} - C\n` +
-            `${bash} - $hell\n` +
+            `${bash} - Shell\n` +
             `${assembly} - Assembly\n`
         );
-        message.channel.send(embed);
+        //message.channel.send(embed);
 
-        const embedLang = message.embeds.find(msg => msg.title === "Language Roles");
-        embedLang.message.react(swift)
-            .then(reaction => console.log("reacted with" + reaction.emoji.name))
-            .catch(err => console.error);
+        message.channel.send({
+            embed: embed
+        }).then(embedMessage => {
+            embedMessage.react(swift);
+            embedMessage.react(rust);
+            embedMessage.react(python);
+            embedMessage.react(lua);
+            embedMessage.react(kotlin);
+            embedMessage.react(javascript);
+            embedMessage.react(java);
+            embedMessage.react(html);
+            embedMessage.react(go);
+            embedMessage.react(css);
+            embedMessage.react(csharp);
+            embedMessage.react(cpp);
+            embedMessage.react(c);
+            embedMessage.react(bash);
+            embedMessage.react(assembly);
+
+        });
+
+        client.on('messageReactionAdd', (reaction, user) => {
+            let roleName = reaction.emoji.name;
+            let role = reaction.message.guild.roles.find(role => role.name === roleName);
+            message.channel.send("Added " + roleName);
+            var member = reaction.message.guild.members.find(member => member.id === user.id);
+            member.addRole(role.id).then(member => {
+                message.send(
+                    "Added rolename " + roleName + "\n" +
+                    "Added role " + role + "\n" +
+                    "Added member " + member + "\n" +
+
+                    "Added " + member.user.username
+                )
+            }).catch(err => console.error);
+        })
+
+        // const embedLang = message.embeds.find(msg => msg.title === "Language Roles");
+        // embedLang.message.react(swift)
+        //     .then(reaction => console.log("reacted with" + reaction.emoji.name))
+        //     .catch(err => console.error);
 
         // if (message.author.bot) {
         //     if (message.embeds) {
