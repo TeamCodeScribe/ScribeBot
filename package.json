@@ -1,5 +1,5 @@
 {
-  "name": "runner",
+  "name": "nodemon",
   "version": "1.0.0",
   "description": "A Discord bot for the hackathon, ScribeHacks",
   "main": "discord.js",
@@ -13,7 +13,6 @@
     "discord.js": "^11.5.1",
     "nodemon": "^2.0.1"
   },
-  "name": "nodemon",
   "homepage": "http://nodemon.io",
   "...": "... other standard package.json values",
   "nodemonConfig": {
@@ -22,5 +21,8 @@
     ],
     "delay": "0",
     "verbose": "true"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
   }
 }
