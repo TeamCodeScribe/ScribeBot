@@ -2,3 +2,111 @@
   "tabWidth": 2,
   "useTabs": true
 }
+
+
+
+const windowsE = client.emojis.find(emoji => emoji.name === "Windows");
+		const linuxE = client.emojis.find(emoji => emoji.name === "Linux");
+		const macosE = client.emojis.find(emoji => emoji.name === "macOS");
+		const iosE = client.emojis.find(emoji => emoji.name === "iOS");
+		const androidE = client.emojis.find(emoji => emoji.name === "Android");
+		const swiftE = client.emojis.find(emoji => emoji.name === "Swift");
+		const rustE = client.emojis.find(emoji => emoji.name === "Rust");
+		const pythonE = client.emojis.find(emoji => emoji.name === "Python");
+		const mustacheE = client.emojis.find(emoji => emoji.name === "Mustache");
+		const luaE = client.emojis.find(emoji => emoji.name === "Lua");
+		const kotlinE = client.emojis.find(emoji => emoji.name === "Kotlin");
+		const javascriptE = client.emojis.find(
+			emoji => emoji.name === "JavaScript"
+		);
+		const javaE = client.emojis.find(emoji => emoji.name === "Java");
+		const htmlE = client.emojis.find(emoji => emoji.name === "HTMLCSS");
+		const goE = client.emojis.find(emoji => emoji.name === "Go");
+		const cssE = client.emojis.find(emoji => emoji.name === "CSS");
+		const csharpE = client.emojis.find(emoji => emoji.name === "Csharp");
+		const cppE = client.emojis.find(emoji => emoji.name === "Cpp");
+		const cE = client.emojis.find(emoji => emoji.name === "Clang");
+		const bashE = client.emojis.find(emoji => emoji.name === "Shell");
+		const assemblyE = client.emojis.find(emoji => emoji.name === "Assembly");
+
+		const windowsR = message.guild.roles.get("666094575013855281");
+		const pythonR = message.guild.roles.get("666094478477492231");
+		const javaR = message.guild.roles.get("666094539320328222");
+		const iosR = message.guild.roles.get("666094564284563476");
+		const androidR = message.guild.roles.get("666094565459230724");
+		const macosR = message.guild.roles.get("666094575429091328");
+		const linuxR = message.guild.roles.get("666094578339807282");
+		const shellR = message.guild.roles.get("666094594840330320");
+		const phpR = message.guild.roles.get("666094596216061962");
+		const rustR = message.guild.roles.get("666094597235146761");
+		const swiftR = message.guild.roles.get("666094597960761345");
+		const kotlinR = message.guild.roles.get("666094598376128554");
+		const htmlcssR = message.guild.roles.get("666094599353270297");
+		const cppR = message.guild.roles.get("666094600435269632");
+		const clangR = message.guild.roles.get("666094600972402708");
+		const csharpR = message.guild.roles.get("666094602062790666");
+		const javascriptR = message.guild.roles.get("666094602301997056");
+		const luaR = message.guild.roles.get("666118946595799058");
+		const assemblyR = message.guild.roles.get("666118967383031818");
+
+		/*
+                Languages: Python, Java, JavaScript, C#, C++, C, HTML/CSS, Kotlin, Swift, Rust, PHP, Lua, Bash
+                */
+//const embed = new RichEmbed();
+		embed.setTitle("Language Roles");
+		embed.setColor("BLUE");
+		embed.setDescription(
+			`${swiftE
+} - Swift\n` +
+				`${rustE
+} - Rust\n` +
+				`${pythonE
+} - Python\n` +
+				`${luaE
+} - Lua\n` +
+				`${kotlinE
+} - Kotlin\n` +
+				`${javascriptE
+} - JavaScript\n` +
+				`${javaE
+} - Java\n` +
+				`${htmlE
+} - HTML\n` +
+				`${goE
+} - Go\n` +
+				`${cssE
+} - CSS\n` +
+				`${csharpE
+} - C#\n` +
+				`${cppE
+} - C++\n` +
+				`${cE
+} - C\n` +
+				`${bashE
+} - Shell\n` +
+				`${assemblyE
+} - Assembly\n`
+		);
+		//message.channel.send(embed);
+
+		message.channel
+			.send({
+				embed: embed
+})
+			.then(embedMessage => {
+				embedMessage.react(swiftE);
+				embedMessage.react(rustE);
+				embedMessage.react(pythonE);
+				embedMessage.react(luaE);
+				embedMessage.react(kotlinE);
+				embedMessage.react(javascriptE);
+				embedMessage.react(javaE);
+				embedMessage.react(htmlE);
+				embedMessage.react(goE);
+				embedMessage.react(cssE);
+				embedMessage.react(csharpE);
+				embedMessage.react(cppE);
+				embedMessage.react(cE);
+				embedMessage.react(bashE);
+				embedMessage.react(assemblyE);
+});

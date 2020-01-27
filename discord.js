@@ -32,6 +32,8 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+console.log("Your current discord.js version is :" + Discord.version);
+
 client.on("message", message => {
 	if (!message.content.startsWith(prefix)) return;
 
