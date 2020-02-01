@@ -2,32 +2,33 @@ module.exports = {
     name: "roleReaction",
     description: "roleReaction",
     execute(message, args, embed, client) {
-        //The Variables ughhh
-        let windows = client.emojis.find(emoji => emoji.name === "Windows");
-        let linux = client.emojis.find(emoji => emoji.name === "Linux");
-        let macos = client.emojis.find(emoji => emoji.name === "macOS");
-        let ios = client.emojis.find(emoji => emoji.name === "iOS");
-        let android = client.emojis.find(emoji => emoji.name === "Android");
-        let swift = client.emojis.find(emoji => emoji.name === "Swift");
-        let rust = client.emojis.find(emoji => emoji.name === "Rust");
-        let python = client.emojis.find(emoji => emoji.name === "Python");
-        let mustache = client.emojis.find(emoji => emoji.name === "Mustache");
-        let lua = client.emojis.find(emoji => emoji.name === "Lua");
-        let kotlin = client.emojis.find(emoji => emoji.name === "Kotlin");
-        let javascript = client.emojis.find(emoji => emoji.name === "JavaScript");
-        let java = client.emojis.find(emoji => emoji.name === "Java");
-        let html = client.emojis.find(emoji => emoji.name === "HTMLCSS");
-        let go = client.emojis.find(emoji => emoji.name === "Go");
-        let css = client.emojis.find(emoji => emoji.name === "CSS");
-        let csharp = client.emojis.find(emoji => emoji.name === "Csharp");
-        let cpp = client.emojis.find(emoji => emoji.name === "Cpp");
-        let c = client.emojis.find(emoji => emoji.name === "Clang");
-        let bash = client.emojis.find(emoji => emoji.name === "Shell");
-        let assembly = client.emojis.find(emoji => emoji.name === "Assembly");
 
-        let bug = message.guild.roles.get("666094602301997056");
-        // 666118946595799058
-        console.log(bug.name);
+
+        //The Variables ughhh
+        let windowsE = client.emojis.find(emoji => emoji.name === "Windows");
+        let linuxE = client.emojis.find(emoji => emoji.name === "Linux");
+        let macosE = client.emojis.find(emoji => emoji.name === "macOS");
+        let iosE = client.emojis.find(emoji => emoji.name === "iOS");
+        let androidE = client.emojis.find(emoji => emoji.name === "Android");
+        let swiftE = client.emojis.find(emoji => emoji.name === "Swift");
+        let rustE = client.emojis.find(emoji => emoji.name === "Rust");
+        let pythonE = client.emojis.find(emoji => emoji.name === "Python");
+        let mustacheE = client.emojis.find(emoji => emoji.name === "Mustache");
+        let luaE = client.emojis.find(emoji => emoji.name === "Lua");
+        let kotlinE = client.emojis.find(emoji => emoji.name === "Kotlin");
+        let javascriptE = client.emojis.find(emoji => emoji.name === "JavaScript");
+        let javaE = client.emojis.find(emoji => emoji.name === "Java");
+        let htmlE = client.emojis.find(emoji => emoji.name === "HTMLCSS");
+        let goE = client.emojis.find(emoji => emoji.name === "Go");
+        let cssE = client.emojis.find(emoji => emoji.name === "CSS");
+        let csharpE = client.emojis.find(emoji => emoji.name === "Csharp");
+        let cppE = client.emojis.find(emoji => emoji.name === "Cpp");
+        let cE = client.emojis.find(emoji => emoji.name === "Clang");
+        let bashE = client.emojis.find(emoji => emoji.name === "Shell");
+        let assemblyE = client.emojis.find(emoji => emoji.name === "Assembly");
+
+        let windowsR = message.guild.roles.get("666094575013855281");
+        let swiftR = message.guild.roles.get("666094597960761345");
         /*
                 Languages: Python, Java, JavaScript, C#, C++, C, HTML/CSS, Kotlin, Swift, Rust, PHP, Lua, Bash
                 */
@@ -36,62 +37,224 @@ module.exports = {
         embed.setTitle("Language Roles");
         embed.setColor("BLUE");
         embed.setDescription(
-            `${swift} - Swift\n` +
-            `${rust} - Rust\n` +
-            `${python} - Python\n` +
-            `${lua} - Lua\n` +
-            `${kotlin} - Kotlin\n` +
-            `${javascript} - JavaScript\n` +
-            `${java} - Java\n` +
-            `${html} - HTML\n` +
-            `${go} - Go\n` +
-            `${css} - CSS\n` +
-            `${csharp} - C#\n` +
-            `${cpp} - C++\n` +
-            `${c} - C\n` +
-            `${bash} - Shell\n` +
-            `${assembly} - Assembly\n`
+            `${swiftE} - Swift\n` +
+            `${rustE} - Rust\n` +
+            `${pythonE} - Python\n` +
+            `${luaE} - Lua\n` +
+            `${kotlinE} - Kotlin\n` +
+            `${javascriptE} - JavaScript\n` +
+            `${javaE} - Java\n` +
+            `${htmlE} - HTML\n` +
+            `${goE} - Go\n` +
+            `${cssE} - CSS\n` +
+            `${csharpE} - C#\n` +
+            `${cppE} - C++\n` +
+            `${cE} - C\n` +
+            `${bashE} - Shell\n` +
+            `${assemblyE} - Assembly\n`
         );
         //message.channel.send(embed);
+        const filter = (reaction, user) => [swiftE, rustE, pythonE, luaE, kotlinE, javascriptE, javaE, htmlE, goE, cssE, csharpE, cppE, cE, bashE, assemblyE].includes(reaction.emoji.id);
 
         message.channel.send({
             embed: embed
-        }).then(embedMessage => {
-            embedMessage.react(swift);
-            embedMessage.react(rust);
-            embedMessage.react(python);
-            embedMessage.react(lua);
-            embedMessage.react(kotlin);
-            embedMessage.react(javascript);
-            embedMessage.react(java);
-            embedMessage.react(html);
-            embedMessage.react(go);
-            embedMessage.react(css);
-            embedMessage.react(csharp);
-            embedMessage.react(cpp);
-            embedMessage.react(c);
-            embedMessage.react(bash);
-            embedMessage.react(assembly);
+        }).then(async msg => {
+            await msg.react(swiftE);
+            await msg.react(rustE);
+            await msg.react(pythonE);
+            await msg.react(luaE);
+            await msg.react(kotlinE);
+            await msg.react(javascriptE);
+            await msg.react(javaE);
+            await msg.react(htmlE);
+            await msg.react(goE);
+            await msg.react(cssE);
+            await msg.react(swiftE);
+            await msg.react(swiftE);
+            await msg.react(swiftE);
+            await msg.react(swiftE);
 
+            msg.awaitReaction(filter, {
+                max: 1,
+                time: 3000000,
+                errors: ['time']
+            }).then(collected => {
+                const reaction = collected.first;
+
+                switch (reaction.emoji.id) {
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case rustE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+                    case swiftE:
+                        if (message.member.roles.has(swiftE)) {
+                            console.log("You already have that role!" + swiftE.name)
+                        }
+                        message.member.addRole(swiftE).catch(err => {
+                            console.log(error);
+                            return console.log("Unable to add the role: " + swiftE.name);
+                        })
+                        console.log("Added the role: " + swiftE.name);
+                        break;
+
+                }
+            }).catch(collected => {
+                return (message.reply("Unable to add you to this role."));
+            })
         });
 
-        client.on('messageReactionAdd', (reaction, user) => {
-            var roleName = reaction.emoji.name;
-            var role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === roleName.toLowerCase());
-            var member = reaction.message.guild.members.find(member => member.id === user.id);
 
-            if (member.roles.has(role.id)) {
-                console.log(role.id);
-                //console.log(roleName);
-                member.removeRole(role.id).then(member => {
-                    message.channel.send("Removed the role " + role);
-                }).catch(err => console.log);
-            } else {
-                member.addRole(role.id).then(member => {
-                    console.log("Added " + role)
-                }).catch(err => console.error);
-            }
-        })
+
+        // message.react(swiftE).then(() => message.react('👎'));
+
+        // const filter = (reaction, user) => {
+        //     return [swiftE, '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+        // };
+
+        // message.awaitReactions(filter, {
+        //         max: Infinity,
+        //         time: null,
+        //         errors: ['time']
+        //     })
+        //     .then(collected => {
+        //         const reaction = collected.first();
+
+        //         if (reaction.emoji.name === swiftE) {
+        //             message.reply('you reacted with a thumbs up.');
+        //             message.member.addRole(swiftR)
+        //         } else {
+        //             message.reply('you reacted with a thumbs down.');
+        //         }
+        //     })
+        //     .catch(collected => {
+        //         message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
+        //     });
 
         // const embedLang = message.embeds.find(msg => msg.title === "Language Roles");
         // embedLang.message.react(swift)
@@ -111,5 +274,22 @@ module.exports = {
         //     }
         //     return;
         // }
+
+        // .then(embedMessage => {
+        //             embedMessage.react(swiftE);
+        //             embedMessage.react(rustE);
+        //             embedMessage.react(pythonE);
+        //             embedMessage.react(luaE);
+        //             embedMessage.react(kotlinE);
+        //             embedMessage.react(javascriptE);
+        //             embedMessage.react(javaE);
+        //             embedMessage.react(htmlE);
+        //             embedMessage.react(goE);
+        //             embedMessage.react(cssE);
+        //             embedMessage.react(csharpE);
+        //             embedMessage.react(cppE);
+        //             embedMessage.react(cE);
+        //             embedMessage.react(bashE);
+        //             embedMessage.react(assemblyE);
     }
 };
