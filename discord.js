@@ -40,7 +40,7 @@ client.on("message", message => {
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 	const embed = new RichEmbed();
-	const taggedUser = message.mentions.users.first();
+	// const taggedUser = message.mentions.users.first();
 
 
 
@@ -59,10 +59,7 @@ client.on("message", message => {
 	} else if (command === `${prefix}help`) {
 		client.commands.get("help").execute(message, args, prefix);
 	} else if (message == `${prefix}role`) {
-		// client.commands.get("roleReaction").execute(message, args, embed, client);
-		message.member.addRole("668552483626549259");
-		message.member.addRole("633078301216210945");
-
+		client.commands.get("roleReaction").execute(message, args, embed, client);
 	}
 
 	if (message.member.roles.has("668552483626549259")) {
