@@ -3,10 +3,10 @@ module.exports = {
 	description: 'name',
 	execute(message, args) {
         // type in any command thing you want here
-        const human = message.guild.roles.get("633078301216210945");
+        const human = message.guild.roles.get("668552483626549259");
         let username = args.join(" ");
 
-        if(message.member.roles.has("633078301216210945")) {
+        if(message.member.roles.has("668552483626549259")) {
             message.reply("You already are verified" + username).catch(console.error(console.log("yo 0")));
         }
 
@@ -16,7 +16,7 @@ module.exports = {
 
         else {
                 message.member.setNickname(username);
-                message.member.addRole("633078301216210945");
+                message.member.addRole("668552483626549259");
         }
 	},
 };
