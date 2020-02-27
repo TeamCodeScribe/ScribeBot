@@ -26,7 +26,7 @@ module.exports = {
             if (parseJSON.parsed_state === "California") {
               //console.log(hackCA);
 
-              if (parseJSON.start.includes("2020")) {
+              if (parseJSON.start.includes("2020-03" || "2020-04")) {
                 if (message.channel.send !== previousMsgs) {
                   message.channel.send(
                     "Name: " +
