@@ -61,6 +61,10 @@ client.on("message", message => {
 	} else if (message == `${prefix}role`) {
 		client.commands.get("roleReaction").execute(message, args, embed, client);
 	}
+	else if (message.content.startsWith (`${prefix}rm`)) {
+		client.commands.get('rm').execute(message, args);
+	}
+
 
 	if (message.member.roles.has("668552483626549259")) {
 		// Admin only commands
